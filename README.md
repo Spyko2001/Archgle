@@ -1,190 +1,344 @@
-# ⚡ Archgle — The Ultimate Hybrid Workstation
+<div align="center">
 
-### Hyper-Optimized Arch Linux for Pentesting • Cloud Development • AI Workflows
+![Archgle Logo](./themes/logo.png)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Arch-Linux-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Window%20Manager-Hyprland-purple?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Performance-Optimized-brightgreen?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Google-Tools-black?style=for-the-badge">
-</p>
+# Archgle
 
----
+**Arch Linux + Google Services + AI**
 
-## 📖 About The Project
+*A customized Arch Linux distribution featuring Google services integration, AI-powered system administration, and beautiful modern desktop environments.*
 
-**Archgle** (Arch + Google) is a high-performance, hybrid Arch Linux environment designed to transform **low-spec hardware** into a smooth, powerful workstation.
+[![Arch Linux](https://img.shields.io/badge/Based%20on-Arch%20Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)](https://archlinux.org/)
+[![Hyprland](https://img.shields.io/badge/Desktop-Hyprland-00D9FF?style=for-the-badge)](https://hyprland.org/)
+[![GNOME](https://img.shields.io/badge/Desktop-GNOME-4A86CF?style=for-the-badge&logo=gnome&logoColor=white)](https://gnome.org/)
+[![Google AI](https://img.shields.io/badge/AI-Google%20Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)
 
-Built for:
+[Features](#-features) • [Installation](#-quick-start) • [Building](#-building-from-source) • [Documentation](#-documentation)
 
-* 🛡️ **Pentesting**
-* ☁️ **Cloud & DevOps Workflows**
-* 🤖 **AI / Agentic Workloads**
-* 🖥️ **Daily Driving**
-
-Archgle uses **kernel-level optimizations**, **Btrfs storage tuning**, **ZRAM**, and the ultra-light **Hyprland Wayland compositor** to deliver **Mac/Windows-tier smoothness** with full Arch Linux flexibility.
+</div>
 
 ---
 
-## ✨ Key Features
+## 🎯 What is Archgle?
 
-### 🧠 Low-Spec Optimization Engine
+Archgle reimagines what a Linux distribution can be when deeply integrated with Google's ecosystem and powered by AI. Built on Arch Linux's solid foundation, Archgle adds:
 
-* **RAM Doubling**
-  `zram-generator` with `zstd` compression makes **8GB behave like 12–16GB**.
+- **🤖 Agentic AI** - Gemini-powered system assistant at the kernel level
+- **🌐 Google Services** - Chrome, Drive, Gmail, Calendar seamlessly integrated
+- **⚡ Hardware-Aware** - Automatically optimized for your specific hardware (CPU, GPU, NPU)
+- **🎨 Beautiful** - Modern, polished desktop environments with custom themes
+- **🔧 Developer-Friendly** - Antigravity IDE, Docker, and cloud tools included
 
-* **Storage Compression**
-  Btrfs with `compress=zstd:3` saves **30–40% disk space** on code & forensic data.
-
-* **Windows-Like Paging**
-  `vm.swappiness=130` keeps active windows responsive while pushing background tasks to ZRAM swap.
-
----
-
-### 🛡️ Hybrid Security & Dev Environment
-
-* **Antigravity Ready**
-  Custom wrapper prevents the IDE from hogging system memory.
-
-* **Gemini OS Mode**
-  **Super + G** opens a floating Gemini AI agent for instant terminal code generation.
-
-* **Panic Button**
-  **Super + Shift + N** triggers a hardware-level **network kill switch**.
-
-* **BlackArch Slim**
-  Only essential pentesting tools — no bloat.
+> **Perfect for developers, power users, and anyone who wants the flexibility of Arch with the convenience of Google integration.**
 
 ---
 
-## 🚀 Installation Guide
+## ✨ Features
 
-### Two-Phase Automated Deployment
+<table>
+<tr>
+<td width="50%">
 
----
+### 🤖 AI Integration
 
-## 📦 Prerequisites
-
-* Arch Linux bootable USB
-* Minimum **8GB RAM / 250GB storage**
-* `install_usb.sh` and `install_post.sh` copied to USB
-
----
-
-# 🧩 Phase 1 — Base System Provisioning
-
-### `install_usb.sh`
-
-> ⚠️ **WARNING: THIS SCRIPT WILL COMPLETELY WIPE YOUR TARGET DISK.**
-
-This script handles:
-
-* Disk partitioning
-* Btrfs subvolumes (with compression)
-* Base system installation (`pacstrap`)
-* Copies Phase 2 installer to the new system
-
-Run from the **Arch ISO live environment**:
+- **AI Daemon** - System monitoring & optimization
+- **Google OAuth** - Sign in with Google account
+- **AI CLI** - Ask questions, automate tasks
+- **Voice Commands** - Optional voice control
 
 ```bash
-#!/bin/bash
-# Project Archgle - Part 1: Base System Installer
-# WARNING: THIS WILL WIPE YOUR DISK. Review variables before running.
-
-DISK="/dev/sda"             # CHANGE THIS to your SSD (use 'lsblk' to check)
-USERNAME="admin"
-PASSWORD="password123"      # CHANGE THIS immediately after install!
-
-echo "⚠️  WARNING: ALL DATA ON $DISK WILL BE DESTROYED. STARTING IN 5 SECONDS..."
-# ... (rest of partitioning and pacstrap commands) ...
-
-# The script copies install_post.sh to new user's home and reboots.
-# ...
+archgle-ai ask "optimize my system"
+archgle-ai troubleshoot "wifi issue"
+archgle-ai automate "backup to gdrive"
 ```
+
+</td>
+<td width="50%">
+
+### 🌐 Google Services Core
+
+- **Chrome** - Default browser with sync
+- **Google Drive** - Auto-mounted at `~/GoogleDrive`
+- **Gmail** - GNOME Online Accounts
+- **Calendar & Contacts** - Full sync
+- **Cloud SDK** - Pre-configured
+
+*All included by default*
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🖥️ Modern Desktops
+
+**Hyprland**
+- Tiling Wayland compositor
+- Smooth animations
+- Material Design theme
+
+**GNOME**
+- Full-featured desktop
+- Google extensions
+- Touch-friendly
+
+*Install one or both*
+
+</td>
+<td width="50%">
+
+### ⚡ Hardware-Aware
+
+**Automatic optimization for:**
+- High-end PCs (max performance)
+- Mid-range systems (balanced)
+- Low-end hardware (efficiency)
+
+**Full support:**
+- GPU: AMD, Intel, Nvidia
+- NPU: Intel AI, AMD XDNA
+
+</td>
+</tr>
+</table>
 
 ---
 
-# 🧩 Phase 2 — Post-Install Environment Setup
+## 🎨 Screenshots
 
-### `install_post.sh`
+<div align="center">
 
-Run after rebooting into the new Arch install:
+### Desktop Wallpapers
+
+<table>
+<tr>
+<td align="center">
+<img src="./themes/wallpapers/dark.png" width="400px" alt="Dark Theme Wallpaper"/>
+<br/>
+<b>Material Dark Theme</b>
+</td>
+<td align="center">
+<img src="./themes/wallpapers/abstract.png" width="400px" alt="Abstract AI Wallpaper"/>
+<br/>
+<b>AI Abstract Theme</b>
+</td>
+</tr>
+</table>
+
+### Boot Experience
+
+<img src="./themes/grub/background.png" width="600px" alt="GRUB Boot Screen"/>
+
+*Custom GRUB theme with Archgle branding*
+
+</div>
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- USB drive (8GB+)
+- UEFI system (Secure Boot disabled)
+- 8GB+ RAM, 50GB+ storage recommended
+
+### Installation
 
 ```bash
-#!/bin/bash
-# Project Archgle - Part 2: The "Google Pixel" Experience
-# Installs Hyprland, ZRAM, Google Tools, and Pentest Utils
+# 1. Download latest ISO
+wget https://github.com/Spyko2001/Archgle/releases/latest/archgle.iso
 
-echo "🚀 Starting Phase 2: Building Archgle..."
-# This script performs the following:
-# 1. Installs Yay (AUR helper)
-# 2. Configures ZRAM and custom Swappiness
-# 3. Installs Hyprland, Material You theme, and Google fonts
-# 4. Installs Google Cloud SDK, Gemini CLI, and Antigravity-bin
-# 5. Installs the BlackArch Slim pentesting toolkit
-# 6. Sets up all dotfiles and the memory-safe launch wrappers.
+# 2. Verify integrity
+sha256sum -c archgle.iso.sha256
 
-# ... (Script commands here) ...
-echo "✅ INSTALLATION COMPLETE! Log out and back in to start Hyprland."
+# 3. Write to USB (Linux)
+sudo dd if=archgle.iso of=/dev/sdX bs=4M status=progress oflag=sync
+
+# 4. Boot from USB and run installer
+archgle-installer
+```
+
+The interactive installer guides you through:
+- ✅ Desktop environment selection
+- ✅ Theme customization  
+- ✅ Security tools (optional)
+- ✅ Software recommendations
+- ✅ Hardware detection
+- ✅ Gemini AI setup
+
+**See [Installation Guide](./docs/INSTALL.md) for detailed instructions**
+
+---
+
+## 🔧 Building from Source
+
+### Requirements
+
+- Arch Linux environment (VM, container, or native)
+- 50GB free space
+- `archiso` package
+
+### Build Commands
+
+```bash
+# Clone repository
+git clone https://github.com/Spyko2001/Archgle.git
+cd Archgle
+
+# Install dependencies
+sudo pacman -S archiso
+
+# Build ISO
+cd build
+sudo ./build-iso.sh
+
+# Output: ../out/archgle-YYYY.MM.DD-x86_64.iso
+```
+
+**See [Build Guide](./docs/BUILD.md) for Hyper-V setup and detailed instructions**
+
+---
+
+## 📚 Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Features](./docs/FEATURES.md) | Complete feature list and capabilities |
+| [Build Guide](./docs/BUILD.md) | Build your own ISO (Hyper-V instructions) |
+| [Installation](./docs/INSTALL.md) | Detailed installation walkthrough |
+| [Project Vision](./docs/archgle.md) | Philosophy and design goals |
+
+---
+
+## 🆚 Comparison
+
+| Feature | Archgle | Vanilla Arch | Ubuntu | Manjaro |
+|---------|:-------:|:------------:|:------:|:-------:|
+| Interactive Installer | ✅ | ❌ | ✅ | ✅ |
+| Google Integration | ✅ | ❌ | ❌ | ❌ |
+| AI Assistant | ✅ | ❌ | ❌ | ❌ |
+| Hardware-Aware Optimization | ✅ | ❌ | ⚠️ | ⚠️ |
+| Rolling Release | ✅ | ✅ | ❌ | ✅ |
+| AUR Access | ✅ | ✅ | ❌ | ✅ |
+| GPU/NPU Support | ✅ | ⚠️ | ⚠️ | ⚠️ |
+| Beautiful Defaults | ✅ | ❌ | ⚠️ | ✅ |
+
+---
+
+## 🎯 Who is Archgle For?
+
+<table>
+<tr>
+<td width="50%">
+
+### ✅ Perfect For
+
+- **Google ecosystem users** - Seamless integration
+- **Developers** - Antigravity IDE, Docker, cloud tools
+- **AI enthusiasts** - Gemini API, NPU acceleration
+- **Power users** - Arch flexibility, easy setup
+- **Security pros** - Optional pentesting toolkit
+
+</td>
+<td width="50%">
+
+### 💡 Great For
+
+- Daily productivity
+- Software development
+- Content creation
+- System administration
+- Cloud computing
+- Gaming (Steam, Lutris)
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🛠️ Project Structure
+
+```
+Archgle/
+├── archiso/                  # ISO build configuration
+│   ├── profiledef.sh         # Build settings
+│   ├── packages.x86_64       # 200+ packages
+│   └── pacman.conf           # Package manager config
+│
+├── installer/                # Interactive TUI installer
+│   └── archgle-installer.sh
+│
+├── scripts/                  # System scripts
+│   ├── ai/                   # AI daemon & CLI
+│   ├── google-services-setup.sh
+│   └── performance-tweaks.sh
+│
+├── configs/                  # System configurations
+│   ├── ai/                   # AI daemon service
+│   ├── hyprland/             # Hyprland config
+│   └── software/             # Package categories
+│
+├── themes/                   # Custom branding
+│   ├── logo.png
+│   ├── wallpapers/
+│   └── grub/
+│
+└── docs/                     # Documentation
 ```
 
 ---
 
-## ⌨️ Keybindings (Hyprland)
+## 🤝 Contributing
 
-| Keybind               | Action             | Context                        |
-| --------------------- | ------------------ | ------------------------------ |
-| **Super + Space**     | App Launcher       | Wofi (Material Themed)         |
-| **Super + Q**         | Terminal           | Kitty                          |
-| **Super + G**         | Gemini Agent       | Floating AI Chat Window        |
-| **Super + Return**    | Launch Antigravity | Through memory-safe wrapper    |
-| **Super + Shift + N** | ⚠️ PANIC BUTTON    | Disable all network interfaces |
-| **3-Finger Swipe**    | Switch Workspace   | Left/Right                     |
+Contributions are welcome! Here's how you can help:
 
----
-
-## 🏗️ System Architecture
-
-```
-Archgle
-├── Optimized Kernel (zram + IO schedulers)
-├── BTRFS (compress=zstd:3)
-├── Hyprland (Wayland)
-├── Google Cloud / Gemini / Antigravity
-├── BlackArch Slim Toolkit
-└── Memory-Safe Wrappers & System Tweaks
-```
+- ⭐ **Star** this repository
+- 🐛 **Report bugs** via [Issues](https://github.com/Spyko2001/Archgle/issues)
+- 💡 **Suggest features** in [Discussions](https://github.com/Spyko2001/Archgle/discussions)
+- 🔧 **Submit PRs** to improve code, docs, or themes
+- 📢 **Share** Archgle with the community
 
 ---
 
-## ⚠️ Legal Disclaimer
+## 📜 License
 
-* Not affiliated with Google in any way.
-* Pentesting tools included in this project must **only** be used on systems you own or have explicit permission to test.
-* The author is not responsible for misuse or damages.
+This project is licensed under the **MIT License** - see [LICENSE](LICENSE) for details.
 
 ---
 
-## ❤️ Community
+## ⚠️ Important Notes
 
-Built with passion for:
+> [!WARNING]
+> **Not affiliated with Google** - Archgle is an independent open-source project
 
-* The **Arch Linux** community
-* **Pentesters & Red Teamers**
-* **Cloud developers & SREs**
-* **AI researchers and power users**
+> [!CAUTION]
+> **Security Tools** - Use responsibly and only on systems you own or have permission to test
 
----
-
-## ⭐ Support the Project
-
-If you like Archgle:
-
-* ⭐ Star the repo
-* 🐛 Submit issues
-* 🧩 Contribute pull requests
-* 📢 Share with the community
+> [!NOTE]
+> **Experimental** - Archgle is under active development. Test in a VM before daily use.
 
 ---
 
-### 🚀 Welcome to your new supercharged Linux workstation.
+## 🙏 Acknowledgments
+
+Built with ❤️ for the community and powered by:
+
+- [Arch Linux](https://archlinux.org/) - The foundation
+- [Google](https://google.com) - Services and AI
+- [Hyprland](https://hyprland.org/) - Beautiful compositor
+- [GNOME](https://gnome.org/) - Desktop environment
+- The entire open-source community
+
+---
+
+<div align="center">
+
+### 🚀 **Archgle: Where Arch Linux meets Google, powered by AI**
+
+Made with ❤️ by [Spyro](https://github.com/Spyko2001)
+
+[⬆ Back to Top](#archgle)
+
+</div>

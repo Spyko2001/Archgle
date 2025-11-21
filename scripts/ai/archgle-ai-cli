@@ -1,0 +1,264 @@
+#!/usr/bin/env bash
+#
+# Archgle AI CLI - Command-line interface for the AI daemon
+# Interact with your system through AI
+#
+
+set -eo pipefail
+
+DAEMON_SOCK="/run/archgle-ai/daemon.sock"
+CONFIG_DIR="$HOME/.config/archgle-ai"
+API_KEY_FILE="$CONFIG_DIR/api_key.txt"
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+print_help() {
+    cat << EOF
+Archgle AI - AI-powered system assistant
+
+Usage: archgle-ai <command> [arguments]
+
+Commands:
+    ask <question>          Ask Gemini a question about your system
+    optimize                Run AI-driven system optimization
+    troubleshoot [issue]    Get AI-assisted troubleshooting help
+    automate <task>         Set up AI automation for a task
+    status                  Check AI daemon status
+    setup                   Initial setup and authentication
+    start                   Start the AI daemon
+    stop                    Stop the AI daemon
+    logs                    View AI daemon logs
+
+Examples:
+    archgle-ai ask "Why is my system slow?"
+    archgle-ai optimize
+    archgle-ai troubleshoot "wifi not working"
+    archgle-ai automate "backup home directory daily"
+
+EOF
+}
+
+check_daemon() {
+    if ! systemctl is-active --quiet archgle-ai-daemon; then
+        echo -e "${YELLOW}Warning: AI daemon is not running${NC}"
+        echo "Start it with: archgle-ai start"
+        return 1
+    fi
+    return 0
+}
+
+cmd_setup() {
+    echo -e "${BLUE}Archgle AI Setup${NC}"
+    echo ""
+    echo "Choose authentication method:"
+    echo "  1) Google Account (recommended)"
+    echo "  2) Gemini API Key"
+    read -p "Enter choice [1-2]: " choice
+    
+    case $choice in
+        1)
+            echo -e "${GREEN}Setting up Google authentication...${NC}"
+            echo "You'll need Google Cloud credentials (OAuth 2.0 Client ID)"
+            echo ""
+            read -p "Do you have credentials.json? (y/n): " has_creds
+            
+            if [[ "$has_creds" == "y" ]]; then
+                read -p "Enter path to credentials.json: " creds_path
+                mkdir -p "$CONFIG_DIR"
+                cp "$creds_path" "$CONFIG_DIR/credentials.json"
+                echo -e "${GREEN}Credentials saved. Start the daemon to complete authentication.${NC}"
+            else
+                echo ""
+                echo "To get credentials:"
+                echo "1. Go to https://console.cloud.google.com/"
+                echo "2. Create a new project or select existing"
+                echo "3. Enable Gemini API"
+                echo "4. Create OAuth 2.0 Client ID credentials"
+                echo "5. Download as credentials.json"
+                echo "6. Run this setup again"
+            fi
+            ;;
+        2)
+            echo -e "${GREEN}Setting up API key authentication...${NC}"
+            read -sp "Enter your Gemini API key: " api_key
+            echo ""
+            
+            mkdir -p "$CONFIG_DIR"
+            echo "$api_key" > "$API_KEY_FILE"
+            chmod 600 "$API_KEY_FILE"
+            
+            echo -e "${GREEN}API key saved securely${NC}"
+            ;;
+        *)
+            echo -e "${RED}Invalid choice${NC}"
+            exit 1
+            ;;
+    esac
+    
+    echo ""
+    echo -e "${GREEN}Setup complete! Start the daemon with: archgle-ai start${NC}"
+}
+
+cmd_ask() {
+    local question="$*"
+    
+    if [[ -z "$question" ]]; then
+        echo -e "${RED}Error: Please provide a question${NC}"
+        echo "Example: archgle-ai ask 'How do I check disk usage?'"
+        exit 1
+    fi
+    
+    check_daemon || exit 1
+    
+    echo -e "${BLUE}Asking Gemini: ${question}${NC}"
+    echo ""
+    
+    # TODO: Implement actual communication with daemon
+    echo -e "${YELLOW}[Feature in development - daemon integration pending]${NC}"
+}
+
+cmd_optimize() {
+    check_daemon || exit 1
+    
+    echo -e "${BLUE}Running AI-driven system optimization...${NC}"
+    echo ""
+    
+    # System info
+    echo "Analyzing system..."
+    echo "  CPU: $(lscpu | grep 'Model name' | cut -d':' -f2 | xargs)"
+    echo "  RAM: $(free -h | awk '/^Mem:/ {print $2}')"
+    echo "  GPU: $(lspci | grep -i 'vga\|3d' | cut -d':' -f3 | xargs)"
+    echo ""
+    
+    # TODO: Actual AI optimization
+    echo -e "${YELLOW}[Feature in development - AI analysis pending]${NC}"
+}
+
+cmd_troubleshoot() {
+    local issue="$*"
+    
+    check_daemon || exit 1
+    
+    if [[ -z "$issue" ]]; then
+        echo -e "${BLUE}AI Troubleshooting Assistant${NC}"
+        echo ""
+        read -p "Describe the issue: " issue
+    fi
+    
+    echo -e "${BLUE}Analyzing: ${issue}${NC}"
+    echo ""
+    
+    # Gather context
+    echo "Gathering system information..."
+    
+    # TODO: Send to AI daemon for analysis
+    echo -e "${YELLOW}[Feature in development - AI troubleshooting pending]${NC}"
+}
+
+cmd_automate() {
+    local task="$*"
+    
+    if [[ -z "$task" ]]; then
+        echo -e "${RED}Error: Please describe the task to automate${NC}"
+        echo "Example: archgle-ai automate 'backup home directory to Google Drive daily'"
+        exit 1
+    fi
+    
+    check_daemon || exit 1
+    
+    echo -e "${BLUE}Setting up automation: ${task}${NC}"
+    echo ""
+    
+    # TODO: AI-driven automation setup
+    echo -e "${YELLOW}[Feature in development - automation pending]${NC}"
+}
+
+cmd_status() {
+    echo -e "${BLUE}Archgle AI Daemon Status${NC}"
+    echo ""
+    
+    if systemctl is-active --quiet archgle-ai-daemon; then
+        echo -e "Status: ${GREEN}Running${NC}"
+        systemctl status archgle-ai-daemon --no-pager -l | grep -E "Active:|Memory:|CPU:"
+    else
+        echo -e "Status: ${RED}Not running${NC}"
+        echo "Start with: archgle-ai start"
+    fi
+}
+
+cmd_start() {
+    echo -e "${BLUE}Starting Archgle AI Daemon...${NC}"
+    sudo systemctl start archgle-ai-daemon
+    sleep 2
+    
+    if systemctl is-active --quiet archgle-ai-daemon; then
+        echo -e "${GREEN}Daemon started successfully${NC}"
+    else
+        echo -e "${RED}Failed to start daemon${NC}"
+        echo "Check logs with: archgle-ai logs"
+        exit 1
+    fi
+}
+
+cmd_stop() {
+    echo -e "${BLUE}Stopping Archgle AI Daemon...${NC}"
+    sudo systemctl stop archgle-ai-daemon
+    echo -e "${GREEN}Daemon stopped${NC}"
+}
+
+cmd_logs() {
+    echo -e "${BLUE}Archgle AI Daemon Logs${NC}"
+    echo ""
+    journalctl -u archgle-ai-daemon -n 50 --no-pager
+}
+
+# Main
+case "${1:-}" in
+    ask)
+        shift
+        cmd_ask "$@"
+        ;;
+    optimize)
+        cmd_optimize
+        ;;
+    troubleshoot)
+        shift
+        cmd_troubleshoot "$@"
+        ;;
+    automate)
+        shift
+        cmd_automate "$@"
+        ;;
+    status)
+        cmd_status
+        ;;
+    setup)
+        cmd_setup
+        ;;
+    start)
+        cmd_start
+        ;;
+    stop)
+        cmd_stop
+        ;;
+    logs)
+        cmd_logs
+        ;;
+    -h|--help|help)
+        print_help
+        ;;
+    "")
+        print_help
+        ;;
+    *)
+        echo -e "${RED}Unknown command: $1${NC}"
+        echo ""
+        print_help
+        exit 1
+        ;;
+esac

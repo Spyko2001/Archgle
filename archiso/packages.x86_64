@@ -1,0 +1,230 @@
+# Archgle Package List
+# Packages to be included in the live ISO
+
+### Base System ###
+base
+base-devel
+linux
+linux-firmware
+linux-headers
+intel-ucode
+amd-ucode
+
+### Bootloader & System Tools ###
+grub
+efibootmgr
+os-prober
+archiso
+syslinux
+
+### Filesystem Tools ###
+btrfs-progs
+dosfstools
+e2fsprogs
+exfatprogs
+f2fs-tools
+ntfs-3g
+xfsprogs
+gparted
+
+### Networking ###
+networkmanager
+network-manager-applet
+nm-connection-editor
+wget
+curl
+openssh
+rsync
+
+### Compression & Archives ###
+p7zip
+unrar
+unzip
+zip
+
+### Display Server & Basics ###
+xorg-server
+xorg-xinit
+xorg-xrandr
+wayland
+xdg-user-dirs
+xdg-utils
+
+### Desktop Environments ###
+
+## Hyprland (Wayland Tiling Compositor)
+hyprland
+hyprpaper
+hyprlock
+hypridle
+waybar
+wofi
+dunst
+kitty
+polkit-gnome
+
+## GNOME
+gnome
+gnome-tweaks
+gnome-shell-extensions
+dconf-editor
+gnome-browser-connector
+
+### Display Manager ###
+gdm
+sddm
+
+### Audio ###
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber
+pavucontrol
+playerctl
+
+### Bluetooth ###
+bluez
+bluez-utils
+blueman
+
+### Fonts ###
+ttf-dejavu
+ttf-liberation
+ttf-roboto
+ttf-roboto-mono
+noto-fonts
+noto-fonts-emoji
+noto-fonts-cjk
+ttf-font-awesome
+ttf-jetbrains-mono
+inter-font
+
+### GPU Drivers ###
+# AMD
+mesa
+lib32-mesa
+vulkan-radeon
+lib32-vulkan-radeon
+libva-mesa-driver
+lib32-libva-mesa-driver
+mesa-vdpau
+lib32-mesa-vdpau
+xf86-video-amdgpu
+
+# Intel
+vulkan-intel
+lib32-vulkan-intel
+intel-media-driver
+libva-intel-driver
+intel-compute-runtime
+intel-gpu-tools
+
+# NVIDIA
+nvidia
+nvidia-utils
+lib32-nvidia-utils
+nvidia-settings
+opencl-nvidia
+
+# Common GPU utilities
+vulkan-tools
+clinfo
+glxinfo
+
+### Google Services (CORE FEATURE) ###
+rclone
+gnome-online-accounts
+gvfs
+gvfs-google
+gvfs-gphoto2
+gvfs-mtp
+
+### Development Tools ###
+git
+github-cli
+docker
+docker-compose
+nodejs
+npm
+python
+python-pip
+python-pipenv
+go
+rust
+
+### Essential Build Tools ###
+make
+cmake
+gcc
+clang
+
+### System Utilities ###
+htop
+btop
+neofetch
+fastfetch
+tldr
+man-db
+man-pages
+bash-completion
+fish
+tmux
+timeshift
+rsync
+cronie
+
+### File Managers ###
+nautilus
+thunar
+ranger
+nnn
+
+### Text Editors ###
+nano
+vim
+neovim
+
+### Terminal Emulators ###
+alacritty
+kitty
+
+### AUR Helper ###
+# Will be installed via script: paru
+
+### Misc Tools ###
+dialog
+whiptail
+fzf
+ripgrep
+fd
+bat
+exa
+lsd
+zoxide
+
+### AI Daemon Dependencies ###
+python-requests
+python-google-auth
+python-google-api-python-client
+python-systemd
+python-psutil
+python-pyinotify
+
+### Performance & Monitoring ###
+lm_sensors
+dmidecode
+hwinfo
+usbutils
+pciutils
+
+### Power Management (Laptops) ###
+tlp
+auto-cpufreq
+acpi
+powertop
+
+### Kernel Tools ###
+bpftool
+linux-tools
+perf
