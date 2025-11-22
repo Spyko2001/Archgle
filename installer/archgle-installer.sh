@@ -302,7 +302,7 @@ main() {
     select_desktop_environment
     select_theme
     select_security_tools
-    recommend_software
+    # recommend_software - Removed as per user request for minimal bloat
     detect_hardware
     setup_gemini_api
     configure_system

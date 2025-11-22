@@ -139,19 +139,15 @@ gvfs
 gvfs-google
 gvfs-gphoto2
 gvfs-mtp
+google-chrome
 
 ### Development Tools ###
 git
-github-cli
 docker
 docker-compose
-nodejs
-npm
 python
 python-pip
 python-pipenv
-go
-rust
 
 ### Essential Build Tools ###
 make
@@ -162,46 +158,14 @@ clang
 ### System Utilities ###
 htop
 btop
-neofetch
-fastfetch
-tldr
-man-db
-man-pages
-bash-completion
-fish
-tmux
-timeshift
 rsync
-cronie
+timeshift
 
 ### File Managers ###
 nautilus
-thunar
-ranger
-nnn
-
-### Text Editors ###
-nano
-vim
-neovim
 
 ### Terminal Emulators ###
-alacritty
 kitty
-
-### AUR Helper ###
-# Will be installed via script: paru
-
-### Misc Tools ###
-dialog
-whiptail
-fzf
-ripgrep
-fd
-bat
-exa
-lsd
-zoxide
 
 ### AI Daemon Dependencies ###
 python-requests
@@ -215,7 +179,6 @@ python-pyinotify
 lm_sensors
 dmidecode
 hwinfo
-usbutils
 pciutils
 
 ### Power Management (Laptops) ###

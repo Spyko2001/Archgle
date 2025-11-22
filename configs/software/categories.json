@@ -1,201 +1,79 @@
 {
   "development": {
-    "included": ["antigravity", "docker", "git", "nodejs", "python", "github-cli", "neovim"],
-    "recommended": [
-      {
-        "name": "postman",
-        "description": "API development and testing"
-      },
-      {
-        "name": "dbeaver",
-        "description": "Universal database tool"
-      },
-      {
-        "name": "jupyter-notebook",
-        "description": "Interactive Python notebooks"
-      },
-      {
-        "name": "rust",
-        "description": "Rust programming language"
-      },
-      {
-        "name": "go",
-        "description": "Go programming language"
-      }
-    ]
+    "included": [
+      "antigravity",
+      "docker",
+      "git",
+      "python"
+    ],
+    "recommended": []
   },
   "media": {
-    "recommended": [
-      {
-        "name": "vlc",
-        "description": "Versatile media player"
-      },
-      {
-        "name": "spotify",
-        "description": "Music streaming (AUR)"
-      },
-      {
-        "name": "mpv",
-        "description": "Lightweight video player"
-      },
-      {
-        "name": "gimp",
-        "description": "Image editing"
-      },
-      {
-        "name": "inkscape",
-        "description": "Vector graphics editor"
-      },
-      {
-        "name": "obs-studio",
-        "description": "Screen recording and streaming"
-      },
-      {
-        "name": "kdenlive",
-        "description": "Video editing"
-      },
-      {
-        "name": "blender",
-        "description": "3D creation suite"
-      }
-    ]
+    "recommended": []
   },
   "productivity": {
-    "recommended": [
-      {
-        "name": "libreoffice-fresh",
-        "description": "Office suite"
-      },
-      {
-        "name": "obsidian",
-        "description": "Knowledge base and note-taking (AUR)"
-      },
-      {
-        "name": "thunderbird",
-        "description": "Email client"
-      },
-      {
-        "name": "joplin",
-        "description": "Note-taking with sync"
-      },
-      {
-        "name": "calibre",
-        "description": "E-book management"
-      }
-    ]
+    "recommended": []
   },
   "communication": {
-    "recommended": [
-      {
-        "name": "discord",
-        "description": "Voice and text chat"
-      },
-      {
-        "name": "slack-desktop",
-        "description": "Team communication (AUR)"
-      },
-      {
-        "name": "telegram-desktop",
-        "description": "Secure messaging"
-      },
-      {
-        "name": "signal-desktop",
-        "description": "Private messenger"
-      },
-      {
-        "name": "zoom",
-        "description": "Video conferencing (AUR)"
-      },
-      {
-        "name": "element-desktop",
-        "description": "Matrix client"
-      }
-    ]
+    "recommended": []
   },
   "utilities": {
-    "included": ["timeshift", "gparted", "btop", "fastfetch"],
-    "recommended": [
-      {
-        "name": "bleachbit",
-        "description": "System cleaner"
-      },
-      {
-        "name": "stacer",
-        "description": "System optimizer and monitor"
-      },
-      {
-        "name": "dconf-editor",
-        "description": "GNOME configuration editor"
-      },
-      {
-        "name": "gnome-tweaks",
-        "description": "GNOME customization"
-      },
-      {
-        "name": "flatseal",
-        "description": "Flatpak permissions manager"
-      }
-    ]
+    "included": [
+      "timeshift",
+      "gparted"
+    ],
+    "recommended": []
   },
   "gaming": {
-    "recommended": [
-      {
-        "name": "steam",
-        "description": "Gaming platform"
-      },
-      {
-        "name": "lutris",
-        "description": "Game launcher"
-      },
-      {
-        "name": "gamemode",
-        "description": "Game performance optimizer"
-      },
-      {
-        "name": "mangohud",
-        "description": "Gaming overlay with performance stats"
-      },
-      {
-        "name": "protonup-qt",
-        "description": "Proton version manager"
-      },
-      {
-        "name": "heroic-games-launcher",
-        "description": "Epic and GOG launcher (AUR)"
-      }
-    ]
+    "recommended": []
   },
   "security": {
     "categories": {
       "network_analysis": [
-        {"name": "nmap", "description": "Network scanner"},
-        {"name": "wireshark-qt", "description": "Network protocol analyzer"},
-        {"name": "tcpdump", "description": "Packet analyzer"},
-        {"name": "netcat", "description": "Network Swiss Army knife"},
-        {"name": "masscan", "description": "Fast port scanner"}
+        {
+          "name": "nmap",
+          "description": "Network scanner"
+        },
+        {
+          "name": "wireshark-qt",
+          "description": "Network protocol analyzer"
+        },
+        {
+          "name": "tcpdump",
+          "description": "Packet analyzer"
+        }
       ],
       "penetration_testing": [
-        {"name": "metasploit", "description": "Penetration testing framework"},
-        {"name": "burpsuite", "description": "Web security testing"},
-        {"name": "sqlmap", "description": "SQL injection tool"},
-        {"name": "john", "description": "Password cracker"},
-        {"name": "hashcat", "description": "Advanced password recovery"}
+        {
+          "name": "metasploit",
+          "description": "Penetration testing framework"
+        },
+        {
+          "name": "burpsuite",
+          "description": "Web security testing"
+        }
       ],
       "wireless": [
-        {"name": "aircrack-ng", "description": "WiFi security auditing"},
-        {"name": "wifite", "description": "Automated WiFi攻击"},
-        {"name": "reaver", "description": "WPS attack tool"}
+        {
+          "name": "aircrack-ng",
+          "description": "WiFi security auditing"
+        }
       ],
       "web_testing": [
-        {"name": "nikto", "description": "Web server scanner"},
-        {"name": "dirb", "description": "Web content scanner"},
-        {"name": "gobuster", "description": "URI/DNS brute-forcer"},
-        {"name": "zaproxy", "description": "Web app scanner"}
+        {
+          "name": "nikto",
+          "description": "Web server scanner"
+        },
+        {
+          "name": "gobuster",
+          "description": "URI/DNS brute-forcer"
+        }
       ],
       "forensics": [
-        {"name": "autopsy", "description": "Digital forensics platform"},
-        {"name": "sleuthkit", "description": "Forensic analysis tools"},
-        {"name": "binwalk", "description": "Firmware analysis"}
+        {
+          "name": "autopsy",
+          "description": "Digital forensics platform"
+        }
       ]
     }
   }
